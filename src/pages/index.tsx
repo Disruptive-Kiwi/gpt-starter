@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
-import ButtonLink from '@/components/links/ButtonLink';
 import Seo from '@/components/Seo';
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
@@ -10,9 +11,14 @@ import Seo from '@/components/Seo';
 // to customize the default configuration.
 
 export default function HomePage() {
-  const [apiInput, setApiInput] = useState('');
+  const [apiInput, setApiInput] = useLocalStorage('apiInput', '');
   const [isGenerating, setIsGenerating] = useState(false);
-  const [apiOutput, setApiOutput] = useState('');
+  const [apiOutput, setApiOutput] = useLocalStorage('apiOutput', '');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const callGenerateEndpoint = async () => {
     setIsGenerating(true);
@@ -54,13 +60,16 @@ export default function HomePage() {
   };
 
   const formatOutput = (output: string) => {
-    return output.split('\n').map((item, key) => {
-      return (
-        <p key={key} className='py-2'>
-          {item}
-        </p>
-      );
-    });
+    return output
+      .trim()
+      .split('\n')
+      .map((item, key) => {
+        return (
+          <p key={key} className='py-2'>
+            {item}
+          </p>
+        );
+      });
   };
 
   return (
@@ -94,12 +103,8 @@ export default function HomePage() {
               Generate
             </Button>
 
-            <ButtonLink className='mt-6' href='/components' variant='light'>
-              See all components
-            </ButtonLink>
-
-            {apiOutput && (
-              <div className='mt-6'>
+            {mounted && apiOutput && (
+              <div className='mt-8'>
                 <h2>Output</h2>
                 <div className='mt-2 text-gray-300'>
                   {formatOutput(apiOutput)}

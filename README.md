@@ -61,11 +61,15 @@ Instead, we'll be deploying to [Railway.app](https://railway.app/).
 1. Click on Create new project
 2. Choose Deploy from Github repo
 3. Login to Github (if needed)
-4. Choose your Github repo that was created using this starter
+4. Choose your Github repo that you want to deploy
 5. Click on Add variables -> Add all the environment variables in your `.env.local` file
 6. Click on your app and jump to the Settings tab
-7. Click on Generate domain and then hit the generated domain
+7. Click on Generate domain and then load the generated domain in your browser
 8. You're off to the races 🚀
+
+## Pre-built components
+
+This repo comes with a whole bunch of pre-built components that can be found at `http://localhost:3000/components`.
 
 ## Expansion Pack 📦
 
