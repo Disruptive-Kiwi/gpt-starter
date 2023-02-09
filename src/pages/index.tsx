@@ -87,7 +87,7 @@ export default function HomePage() {
             <div className='w-full'>
               <textarea
                 rows={4}
-                placeholder='Target areas for stretching e.g. lower back, shoulders, calves, full body'
+                placeholder='Enter your prompt here...'
                 className='mt-6 w-4/5 rounded-md border-orange-500 bg-dark text-gray-300 focus:border-orange-500 focus:ring-orange-500'
                 value={apiInput}
                 onChange={(event) => setApiInput(event.target.value)}

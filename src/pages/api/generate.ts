@@ -11,7 +11,9 @@ const openai = new OpenAIApi(configuration);
 const generateAction = async (req: NextApiRequest, res: NextApiResponse) => {
   const input = req.body.apiInput;
   console.log(input);
-  const prompt = `Generate a 10 minute step by step stretching routine for the following body part: ${input}. Include the number of times a stretch should be done and how long to hold it for.`;
+
+  // !STARTERCONF - change the following prompt based on your own use case
+  const prompt = `${input}`;
 
   console.log(`Prompt being sent to OpenAI: ${prompt}`);
 
