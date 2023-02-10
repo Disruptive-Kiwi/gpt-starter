@@ -11,9 +11,9 @@ import Seo from '@/components/Seo';
 // to customize the default configuration.
 
 export default function HomePage() {
-  const [apiInput, setApiInput] = useLocalStorage('apiInput', '');
+  const [apiInput, setApiInput] = useLocalStorage<string>('apiInput', '');
   const [isGenerating, setIsGenerating] = useState(false);
-  const [apiOutput, setApiOutput] = useLocalStorage('apiOutput', '');
+  const [apiOutput, setApiOutput] = useLocalStorage<string>('apiOutput', '');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
