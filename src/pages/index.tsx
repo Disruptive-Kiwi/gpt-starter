@@ -80,9 +80,9 @@ export default function HomePage() {
       <main>
         <section className='bg-dark'>
           <div className='layout relative flex min-h-screen flex-col items-center py-12 text-center text-white'>
-            <h1 className='mt-4'>My GPT Thing</h1>
+            <h1 className='mt-4'>Ar Hossain - GPT </h1>
             <p className='mt-2 text-sm text-gray-300'>
-              Description of what my GPT thing does{' '}
+              Description of what Ar Hossain - GPT thing does{' '}
             </p>
             <div className='w-full'>
               <textarea
@@ -105,7 +105,7 @@ export default function HomePage() {
 
             {mounted && apiOutput && (
               <div className='mt-8'>
-                <h2>Output</h2>
+                <h2>Results</h2>
                 <div className='mt-2 text-gray-300'>
                   {formatOutput(apiOutput)}
                 </div>
